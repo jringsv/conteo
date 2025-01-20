@@ -78,8 +78,8 @@
                 <div class="label">Segundos</div>
             </div>
         </div>
-    </div>
-    <div id="frase" class="frase">Cargando ...</div>
+    </div>    
+    <div id="frase" class="frase"><br>Cargando ...</div>
     <script>
         function countdown() {
             const targetDate = new Date("June 1, 2025 00:00:00").getTime();
@@ -117,7 +117,7 @@
                         localStorage.setItem('lastUpdate', now);
                     })
                     .catch(error => {
-                        document.getElementById('frase').innerHTML = "No se pudo cargar la frase motivacional.";
+                        document.getElementById('frase').innerHTML = "...";
                         console.error("Error al obtener la frase motivacional:", error);
                     });
             } else {
