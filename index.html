@@ -113,6 +113,7 @@
                 fetch('https://frasedeldia.azurewebsites.net/api/phrase')
                     .then(response => response.json())
                     .then(data => {
+                        alert('hola');
                         const frase = data.phrase;
                         document.getElementById('frase').innerHTML = frase;
                         localStorage.setItem('frase', frase);
