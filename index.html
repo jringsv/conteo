@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuenta Regresiva - 1 de junio de 2025</title>
+    <title>Se viene SAP</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,6 +15,7 @@
             height: 100vh;
             margin: 0;
         }
+
         .countdown {
             text-align: center;
             background-color: #fff;
@@ -21,19 +23,23 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
             font-size: 24px;
             margin-bottom: 20px;
         }
+
         .time {
             font-size: 40px;
             font-weight: bold;
             color: #333;
         }
+
         .label {
             font-size: 14px;
             color: #777;
         }
+
         .time-block {
             display: inline-block;
             margin: 0 10px;
@@ -42,25 +48,30 @@
         .verde {
             color: green;
         }
+
         .recuadro-celeste {
-            background-color: #00bcd4; /* Fondo celeste */
-            color: white; /* Texto en blanco */
+            background-color: #00bcd4;
+            /* Fondo celeste */
+            color: white;
+            /* Texto en blanco */
             padding: 5px;
             border-radius: 5px;
         }
 
         .frase {
-             margin-top: 20px;
-            font-size: 18px;
+            margin-top: 20px;
+            font-size: 16px;
             color: #555;
             font-style: italic;
             display: block;
         }
     </style>
 </head>
+
 <body>
     <div class="countdown">
-        <h1>Cuenta regresiva para la Implementación de <span class="recuadro-celeste">SAP</span>+<span class="verde">Excel</span></h1>
+        <h1>Cuenta regresiva para la Implementación de <span class="recuadro-celeste">SAP</span>+<span
+                class="verde">Excel</span></h1>
         <div id="timer">
             <div class="time-block">
                 <div id="days" class="time">0</div>
@@ -80,9 +91,64 @@
             </div>
         </div>
         <div id="frase" class="frase"><br>Cargando ...</div>
-    </div>    
-    
+    </div>
+
     <script>
+        const frasesJson = {
+            "frases": [
+                "El éxito no es la clave de la felicidad. La felicidad es la clave del éxito.",
+                "El fracaso es la oportunidad de comenzar de nuevo con más inteligencia.",
+                "No importa lo despacio que vayas, siempre y cuando no te detengas.",
+                "El secreto para salir adelante es comenzar.",
+                "La vida es un 10% lo que me ocurre y 90% cómo reacciono a ello.",
+                "No esperes por el momento perfecto, toma el momento y hazlo perfecto.",
+                "El éxito es la suma de pequeños esfuerzos repetidos día tras día.",
+                "La única forma de hacer un gran trabajo es amar lo que haces.",
+                "No dejes que lo que no puedes hacer interfiera con lo que sí puedes hacer.",
+                "Tu vida no mejora por casualidad, mejora por el cambio.",
+                "Los sueños no se hacen realidad a menos que trabajes por ellos.",
+                "El único lugar donde el éxito viene antes que el trabajo es en el diccionario.",
+                "Nunca es demasiado tarde para ser lo que podrías haber sido.",
+                "La mayor gloria no es nunca caer, sino levantarse siempre.",
+                "El éxito no es el final, el fracaso no es fatal: lo que cuenta es el valor de continuar.",
+                "No puedes tener una vida positiva con una mente negativa.",
+                "La única manera de hacer algo extraordinario es hacer lo que amas.",
+                "El coraje no siempre ruge, a veces es una pequeña voz que dice al final del día: lo intentaré de nuevo mañana.",
+                "El futuro pertenece a quienes creen en la belleza de sus sueños.",
+                "La disciplina es el puente entre las metas y los logros.",
+                "No se trata de si te derriban, se trata de si te levantas.",
+                "Hoy es el mañana por el que te preocupabas ayer.",
+                "La diferencia entre lo ordinario y lo extraordinario es ese pequeño extra.",
+                "El éxito es ir de fracaso en fracaso sin perder el entusiasmo.",
+                "La mejor forma de predecir el futuro es crearlo.",
+                "El trabajo duro supera al talento cuando el talento no trabaja duro.",
+                "El pesimista ve dificultad en cada oportunidad. El optimista ve oportunidad en cada dificultad.",
+                "Siempre parece imposible hasta que se hace.",
+                "El único límite a nuestros logros de mañana son nuestras dudas de hoy.",
+                "El éxito es un viaje, no un destino.",
+                "Cree que puedes y estarás a medio camino.",
+                "No puedes cruzar el mar simplemente mirando el agua.",
+                "Haz de cada día una obra maestra.",
+                "No cuentes los días, haz que los días cuenten.",
+                "Las oportunidades no pasan, las creas.",
+                "La motivación te impulsa, pero es la disciplina la que te hace llegar.",
+                "Las dificultades a menudo preparan a las personas comunes para un destino extraordinario.",
+                "La única manera de hacer algo increíble es creer que puedes.",
+                "Tu único límite es el que tú mismo te pones.",
+                "El único fracaso real es no intentarlo.",
+                "La vida es corta, vive tus sueños y comparte tu pasión.",
+                "La fuerza no proviene de la capacidad física, sino de la voluntad indomable.",
+                "Esfuérzate no por ser exitoso, sino por ser valioso.",
+                "Cuando dejas de soñar, dejas de vivir.",
+                "La clave del éxito es empezar antes de estar listo.",
+                "El éxito está en la rutina diaria.",
+                "El momento que decides rendirte es el momento que decides fracasar.",
+                "El talento gana juegos, pero el trabajo en equipo y la inteligencia ganan campeonatos.",
+                "El progreso es imposible sin cambio, y aquellos que no pueden cambiar sus mentes no pueden cambiar nada.",
+                "El verdadero viaje de descubrimiento no consiste en buscar nuevos paisajes, sino en mirar con nuevos ojos."
+            ]
+        };
+
         function countdown() {
             const targetDate = new Date("June 1, 2025 00:00:00").getTime();
             const now = new Date().getTime();
@@ -104,33 +170,15 @@
         }
 
         function getFraseMotivacional() {
-            const lastUpdate = localStorage.getItem('lastUpdate');
-            const now = new Date().getTime();
-            const oneDay = 24 * 60 * 60 * 1000;
+            const frases = frasesJson.frases;
+            const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)]; 
+            document.getElementById('frase').textContent = fraseAleatoria; 
+        }
 
-            // Si han pasado 24 horas o más desde la última actualización, o no hay frase almacenada
-            if (!lastUpdate || now - lastUpdate >= oneDay) {
-                fetch('https://frasedeldia.azurewebsites.net/api/phrase')
-                    .then(response => response.json())
-                    .then(data => {
-                        alert('hola');
-                        const frase = data.phrase;
-                        document.getElementById('frase').innerHTML = frase;
-                        localStorage.setItem('frase', frase);
-                        localStorage.setItem('lastUpdate', now);
-                    })
-                    .catch(error => {
-                        document.getElementById('frase').innerHTML = "...";
-                        console.error("Error al obtener la frase motivacional:", error);
-                    });
-            } else {
-                // Cargar la frase almacenada
-                document.getElementById('frase').innerHTML = localStorage.getItem('frase');
-            }
-        }        
         countdown();
-        setInterval(countdown, 1000); 
+        setInterval(countdown, 1000);
         getFraseMotivacional(); 
     </script>
 </body>
+
 </html>
