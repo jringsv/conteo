@@ -39,7 +39,6 @@
             margin: 0 10px;
         }
 
-        /* Estilos adicionales */
         .verde {
             color: green;
         }
@@ -48,6 +47,13 @@
             color: white; /* Texto en blanco */
             padding: 5px;
             border-radius: 5px;
+        }
+
+        .frase {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+            font-style: italic;
         }
     </style>
 </head>
@@ -73,7 +79,7 @@
             </div>
         </div>
     </div>
-
+    <div id="frase" class="frase">Cargando ...</div>
     <script>
         function countdown() {
             const targetDate = new Date("June 1, 2025 00:00:00").getTime();
@@ -95,7 +101,33 @@
             }
         }
 
-        setInterval(countdown, 1000);
+        function getFraseMotivacional() {
+            const lastUpdate = localStorage.getItem('lastUpdate');
+            const now = new Date().getTime();
+            const oneDay = 24 * 60 * 60 * 1000;
+
+            // Si han pasado 24 horas o más desde la última actualización, o no hay frase almacenada
+            if (!lastUpdate || now - lastUpdate >= oneDay) {
+                fetch('https://frasedeldia.azurewebsites.net/api/phrase')
+                    .then(response => response.json())
+                    .then(data => {
+                        const frase = data.phrase;
+                        document.getElementById('frase').innerHTML = frase;
+                        localStorage.setItem('frase', frase);
+                        localStorage.setItem('lastUpdate', now);
+                    })
+                    .catch(error => {
+                        document.getElementById('frase').innerHTML = "No se pudo cargar la frase motivacional.";
+                        console.error("Error al obtener la frase motivacional:", error);
+                    });
+            } else {
+                // Cargar la frase almacenada
+                document.getElementById('frase').innerHTML = localStorage.getItem('frase');
+            }
+        }        
+        countdown();
+        setInterval(countdown, 1000); 
+        getFraseMotivacional(); 
     </script>
 </body>
 </html>
