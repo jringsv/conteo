@@ -124,7 +124,8 @@
                 "La generosidad es solo otra forma de poder. Frank Underwood",
                 "Este partido lo perdimos porque nos daba el sol. Carlo Ancelotti",
                 "Vamos a mi casa a ver Interstellar en Netflix. Elí Palacios",
-                "Hoy le hemos dado otro golpe al narcotráfico. Diego Maradona"              
+                "Hoy le hemos dado otro golpe al narcotráfico. Diego Maradona",
+                "No te Enlleves. by luisito."             
             ]
         };
 
@@ -150,12 +151,26 @@
             }
         }
 
+        function escribirFrase(frase, elementoId, velocidad) {
+            let i = 0;
+            const elemento = document.getElementById(elementoId);
+            elemento.textContent = ''; // Limpiar contenido previo
+            
+            const intervalo = setInterval(() => {
+                elemento.textContent += frase[i];
+                i++;
+                if (i >= frase.length) {
+                    clearInterval(intervalo); // Detener el intervalo cuando termine de escribir
+                }
+            }, velocidad);
+        }
+        
         function getFraseMotivacional() {
             const frases = frasesJson.frases;
             const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)]; 
-            document.getElementById('frase').textContent = fraseAleatoria; 
+            escribirFrase(fraseAleatoria, 'frase', 100); // Llama a la función para escribir la frase
         }
-
+        
         countdown();
         setInterval(countdown, 1000);
         getFraseMotivacional(); 
