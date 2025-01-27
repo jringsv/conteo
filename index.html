@@ -51,9 +51,7 @@
 
         .recuadro-celeste {
             background-color: #00bcd4;
-            /* Fondo celeste */
             color: white;
-            /* Texto en blanco */
             padding: 5px;
             border-radius: 5px;
         }
@@ -154,13 +152,13 @@
         function escribirFrase(frase, elementoId, velocidad) {
             let i = 0;
             const elemento = document.getElementById(elementoId);
-            elemento.textContent = ''; // Limpiar contenido previo
+            elemento.textContent = ''; 
             
             const intervalo = setInterval(() => {
                 elemento.textContent += frase[i];
                 i++;
                 if (i >= frase.length) {
-                    clearInterval(intervalo); // Detener el intervalo cuando termine de escribir
+                    clearInterval(intervalo); 
                 }
             }, velocidad);
         }
@@ -168,7 +166,7 @@
         function getFraseMotivacional() {
             const frases = frasesJson.frases;
             const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)]; 
-            escribirFrase(fraseAleatoria, 'frase', 100); // Llama a la función para escribir la frase
+            escribirFrase(fraseAleatoria, 'frase', 100); 
         }
         
         countdown();
